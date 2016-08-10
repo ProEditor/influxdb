@@ -7,6 +7,14 @@
 ### Bugfixes
 
 - [#1834](https://github.com/influxdata/influxdb/issues/1834): Drop time when used as a tag or field key.
+### Release Notes
+
+### Features
+
+- [#7136](https://github.com/influxdata/influxdb/pull/7136): Update jwt-go dependency to version 3.
+
+### Bugfixes
+
 
 ## v1.0.0 [unreleased]
 
