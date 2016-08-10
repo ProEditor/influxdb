@@ -2852,7 +2852,11 @@ func (s *ShowTagValuesStatement) String() string {
 	_, _ = buf.WriteString(" WITH KEY ")
 	_, _ = buf.WriteString(s.Op.String())
 	_, _ = buf.WriteString(" ")
-	_, _ = buf.WriteString(s.TagKeyExpr.String())
+	if lit, ok := s.TagKeyExpr.(*StringLiteral); ok {
+		_, _ = buf.WriteString(QuoteIdent(lit.Val))
+	} else {
+		_, _ = buf.WriteString(s.TagKeyExpr.String())
+	}
 	if s.Condition != nil {
 		_, _ = buf.WriteString(" WHERE ")
 		_, _ = buf.WriteString(s.Condition.String())
